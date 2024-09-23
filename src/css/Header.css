@@ -1,0 +1,57 @@
+.Header {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f0f0f0;
+}
+
+.Header-h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+.Header-nav {
+
+}
+
+.Header-ul {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+}
+
+.Header-a {
+
+}
+
+.Header-a active {
+
+}
+
+.Login-form {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 0.5rem;
+}
+
+.Login-input {
+    border-bottom: 1px solid #333;
+}
+
+.Login-btn,
+.Register-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
