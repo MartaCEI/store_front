@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useUser } from '@/hooks/useUser';
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     // Informaciçópn para probar la app
@@ -9,12 +10,14 @@ const Login = () => {
         password:"1234",
         image: 'https://picsum.photos/200'
     });
+    const navigate = useNavigate();
 
-    const {login} = useUser;
+    const {login} = useUser();
 
     const handleSubmit = (event) => {
         event.preventDefault();
         login(formData)
+        navigate("/admin"); // me voy al admin
     };
 
     const handleChange = (e) => {
@@ -23,8 +26,12 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <form className="Login-form" onSubmit={handleSubmit}>
+        <div className="Register-container">
+            <h1 className="Register-h1">Login</h1>
+            <form className="Register-form" onSubmit={handleSubmit}>
+
+                <div className="Register-div">
+                <label className="Register-label" htmlFor="name">Usuario:</label>
                 <input
                     className="Login-input"
                     type="email"
@@ -34,6 +41,10 @@ const Login = () => {
                     onChange={handleChange}
                     required
                 />
+                </div>
+
+<div className="Register-div">
+<label className="Register-label" htmlFor="username">Email:</label>
                 <input
                     className="Login-input"
                     type="password"
@@ -43,7 +54,8 @@ const Login = () => {
                     onChange={handleChange}
                     required
                 />
-                <input className="Login-btn" type="login" />
+                </div>
+                <input className="Login-btn" type="submit"/>
             </form>
         </div>
     );

@@ -3,11 +3,10 @@ import '../css/Register.css';
 import { useNavigate } from "react-router-dom";
 
 const RegisterForm = () => {
-    // const [conSubmit, setCanSubmit] = useState()
-    // const [tyc, setTyc] = useState(false);
+
     const navigate = useNavigate();
 
-    // Informaciçópn para probar la app
+    // Información para probar la app
     const [formData, setFormData] = useState({
         name:"",
         username:"",
@@ -23,8 +22,9 @@ const RegisterForm = () => {
 
     const handleChange = (e) => {
         const {name, value, type, checked} = e.target;
-        setFormData({ ...formData, 
-            [name]: type=="checkbox" ? checked : value }); 
+        setFormData({ 
+            ...formData, 
+            [name]: type==="checkbox" ? checked : value }); 
             // En caso de que el type sea checkbox, me miras si esta checked o no,
             // sino, mirame el valor del value. 
     }
@@ -35,10 +35,11 @@ const RegisterForm = () => {
             <form className="Register-form" onSubmit={handleSubmit}>
 
                 <div className="Register-div">
-                <label className="Register-label" htmlFor="name">Usuario:</label>
+                <label className="Register-label" htmlFor="name">Nombre:</label>
                 <input
                     className="Register-input"
                     type="name"
+                    name="name"
                     placeholder="Nombre de usuario"
                     value={formData.name}
                     onChange={handleChange}
@@ -51,6 +52,7 @@ const RegisterForm = () => {
                 <input
                     className="Register-input"
                     type="email"
+                    name="username"
                     placeholder="Correo electrónico"
                     value={formData.username}
                     onChange={handleChange}
@@ -63,6 +65,7 @@ const RegisterForm = () => {
                 <input
                     className="Register-input"
                     type="password"
+                    name="password"
                     placeholder="Contraseña"
                     value={formData.password}
                     onChange={handleChange}
@@ -72,15 +75,16 @@ const RegisterForm = () => {
 
                 <div className="Register-div">
                 <input
-                    type="checkbox" 
-                    id="tyc"
+                    className="Register-checkbox"
+                    type="checkbox"
                     name="tyc"
+                    checked={formData.tyc}
                     onChange={handleChange}
-                    required />
+                />
                 <label className="Register-label" htmlFor="tyc">Acepto los términos y condiciones</label>
                 </div>
 
-                    <input className="Register-btn" type="submit">Registrarse</input>
+                <input className="Register-btn" type="submit" />
 
                 <pre>{JSON.stringify(formData, null, 2)}</pre>
             </form>

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import '../css/Header.css';
 import { useUser } from '@/hooks/useUser';
 
 const Header = () => {
-    const {user, login, logout, register} = useUser;
+    const { user, login, logout, register } = useUser(); // Correctly invoke the useUser hook
 
     return (
         <header className='Header'>
@@ -17,24 +17,21 @@ const Header = () => {
                     <li><NavLink className='Header-a' to="/admin" activeClassName="active">Admin</NavLink></li>
                     <li><NavLink className='Header-a' to="/carrito" activeClassName="active">Carrito</NavLink></li>
                     {
-                        user ? (
+                        !user ? (  // If no user is logged in
                             <>
-                                <li><NavLink className="Login-btn" onClick={login} to="/login">Login</NavLink></li>
+                                <li><NavLink className="Login-btn" to="/login">Login</NavLink></li>
                                 <li><NavLink className="Login-btn" to="/register">Registro</NavLink></li>
                             </>
-                        ) : (
+                        ) : (  // If user is logged in
                             <>
-                                <img src={user.image} alt={user.name} />
-                                <h3>{user.name}</h3>
-                                <NavLink onClick={logout}> Logout </NavLink>
+                                <img className="Header-img" src={user.image} alt={user.name} />
+                                <h3 className="Header-h3">{user.name}</h3>
+                                <button className="Login-btn" onClick={logout} type="button">Salir</button>
                             </>
-                            
                         )
                     }
                 </ul>
             </nav>
-                
-            <button className="Login-btn" onClick={logout} type="submit">Salir</button>
         </header>
     );
 }
