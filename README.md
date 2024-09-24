@@ -1,4 +1,6 @@
-# store_front
+# store_front - Proyecto MERN (Mongo Express React Node)
+Sistema de autentificación y upload de archivos
+
 Store (data taken from https://api.escuelajs.co/api/v1/products)
 
 Formulario de registro. Clase 9 de Julio useState.
@@ -6,12 +8,44 @@ Formulario de registro. Clase 9 de Julio useState.
 ## Fase 1: Planificación y Configuración Inicial
 Definir los requerimientos y funcionalidades (2-3h)
 ¿Qué características tendrá la tienda? (catálogo, carrito, pagos, etc.)
-1. Necesita un formulario de registro de usuarios. (1a Pagina)
-2. Necesita un formulario de inicio de sesión. (2a Pagina)
-3. La página principal mostrará un catálogo de productos. (3a Pagina)
-4. Los usuarios podrán ver los detalles de cada producto. (4a Pagina)
-5. Si el usuario no ha iniciado sesión,habrá una interfaz para agregar nuevos productos al catálogo, incluyendo la subida de imágenes. (5a Pagina)
-6. Si el usuario ha iniciado sesión, podrá ver su carrito de compras y realizar pedidos. (6a Pagina)
+1. [x] Necesita un formulario de registro de usuarios. (1a Pagina)
+
+2. [x] Necesita un formulario de inicio de sesión. (2a Pagina)
+3. [x] Home.jsx La página principal mostrará un catálogo de productos. (3a Pagina)
+4. [ ] Los usuarios podrán ver los detalles de cada producto. (4a Pagina)
+5. [ ] Si el usuario no ha iniciado sesión,habrá una interfaz para agregar nuevos productos al catálogo, incluyendo la subida de imágenes. (5a Pagina)
+6. [ ] Si el usuario ha iniciado sesión, podrá ver su carrito de compras y realizar pedidos. (6a Pagina)
+
+@ como raiz para /src
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@':'/src'
+    }
+  }
+})
+Ejemplo: import '@/css/App.css'
+NOTA: en vez de usar ../../ uso @ y todos mis archivos se abren desde la carpeta /src
+
+INSTALAR TAILWIND
+CDN Hay que poner la linea que pone y dentro del head de index.html me copio el script. 
+<script src="https://cdn.tailwindcss.com"></script>
+Archivo nuevo llamado tailwind.config.js en el home de la carpeta. y copiamos 
+
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+    content: ["./src/**/*.{html,js}",
+    "./index.html"],
+    theme: {
+    extend: { },
+},
+plugins: [],
+}
+```
+
 
 ¿Qué tecnologías se utilizarán? (React, Express, MongoDB, etc.)
 Para el front se utilizará React con vite. Tambien los modulos de react-router-dom.
@@ -155,3 +189,4 @@ Ajustes finales y optimización (3-4h)
 Mejorar el rendimiento, imágenes, SEO, entre otros.
 Tiempo estimado total: 40-50 horas
 Puedes ajustar estas tareas a tus necesidades y disponibilidad, pero con esto tendrás una guía clara para empezar.
+

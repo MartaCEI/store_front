@@ -1,58 +1,88 @@
 import { useState } from "react";
 import '../css/Register.css';
+import { useNavigate } from "react-router-dom";
 
 const RegisterForm = () => {
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [tyc, setTyc] = useState(false);
+    // const [conSubmit, setCanSubmit] = useState()
+    // const [tyc, setTyc] = useState(false);
+    const navigate = useNavigate();
+
+    // Informaciçópn para probar la app
+    const [formData, setFormData] = useState({
+        name:"",
+        username:"",
+        password:"",
+        tyc:false,
+        image: 'https://picsum.photos/200'
+    });
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        navigate("/admin"); // me voy al admin
+    }
+
+    const handleChange = (e) => {
+        const {name, value, type, checked} = e.target;
+        setFormData({ ...formData, 
+            [name]: type=="checkbox" ? checked : value }); 
+            // En caso de que el type sea checkbox, me miras si esta checked o no,
+            // sino, mirame el valor del value. 
     }
 
     return (
         <div className="Register-container">
             <h1 className="Register-h1">Regístrate</h1>
-            <form className="Register-form">
+            <form className="Register-form" onSubmit={handleSubmit}>
+
                 <div className="Register-div">
-                <label className="Register-label" htmlFor="username">Usuario:</label>
+                <label className="Register-label" htmlFor="name">Usuario:</label>
                 <input
                     className="Register-input"
-                    type="username"
+                    type="name"
                     placeholder="Nombre de usuario"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    value={formData.name}
+                    onChange={handleChange}
                     required
                 />
                 </div>
+
                 <div className="Register-div">
-                <label className="Register-label" htmlFor="email">Email:</label>
+                <label className="Register-label" htmlFor="username">Email:</label>
                 <input
                     className="Register-input"
                     type="email"
                     placeholder="Correo electrónico"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={formData.username}
+                    onChange={handleChange}
                     required
                 />
                 </div>
-                <div className="Register-div">
-                <input type="checkbox" id="tyc" name="tyc" required />
-                <label className="Register-label" htmlFor="tyc">Acepto los términos y condiciones</label>
-                </div>
+
                 <div className="Register-div">
                 <label className="Register-label" htmlFor="password">Contraseña:</label>
                 <input
                     className="Register-input"
                     type="password"
                     placeholder="Contraseña"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={formData.password}
+                    onChange={handleChange}
                     required
                 />
                 </div>
-                <button className="Register-btn" type="submit">Registrarse</button>
+
+                <div className="Register-div">
+                <input
+                    type="checkbox" 
+                    id="tyc"
+                    name="tyc"
+                    onChange={handleChange}
+                    required />
+                <label className="Register-label" htmlFor="tyc">Acepto los términos y condiciones</label>
+                </div>
+
+                    <input className="Register-btn" type="submit">Registrarse</input>
+
+                <pre>{JSON.stringify(formData, null, 2)}</pre>
             </form>
         </div>
     );

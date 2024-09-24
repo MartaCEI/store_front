@@ -1,8 +1,10 @@
+
+
 const Home = () => {
     return (
         <div>
-            <h1>Home</h1>
-            <p>This is the Home page.</p>
+            <h1>Home Public</h1>
+            <p>Este espacio es públlico</p>
         </div>
     );
 }
