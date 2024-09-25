@@ -1,10 +1,12 @@
 import { useState } from "react";
 import '../css/Register.css';
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../hooks/useUser";
 
 const RegisterForm = () => {
 
     const navigate = useNavigate();
+    const {register} = useUser();
 
     // Información para probar la app
     const [formData, setFormData] = useState({
@@ -17,8 +19,9 @@ const RegisterForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        register(formData);
         navigate("/admin"); // me voy al admin
-    }
+    };
 
     const handleChange = (e) => {
         const {name, value, type, checked} = e.target;

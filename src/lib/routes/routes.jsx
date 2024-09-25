@@ -6,6 +6,7 @@ import Carrito from "../../pages/Carrito";
 import RegisterForm from "../../pages/RegisterForm";
 import Admin from "../../pages/Admin";
 import Login from "../../pages/Login";
+import { PrivateRoute } from "../../components/PrivateRoute";
 
 
 const router = createBrowserRouter(
@@ -32,7 +33,7 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/admin",
-                    element: <Admin />,
+                    element: <PrivateRoute><Admin /></PrivateRoute>,
                 },
                 {
                     path: "/login",

@@ -8,14 +8,14 @@ const Header = () => {
 
     return (
         <header className='Header'>
-            <NavLink className='Header-a' to="/" activeClassName="active">
+            <NavLink className='Header-a' to="/">
                 <h1 className='Header-h1'>MyShop</h1>
             </NavLink>
             <nav className='Header-nav'>
                 <ul className='Header-ul'>
-                    <li><NavLink className='Header-a' to="/" activeClassName="active">Home</NavLink></li>
-                    <li><NavLink className='Header-a' to="/admin" activeClassName="active">Admin</NavLink></li>
-                    <li><NavLink className='Header-a' to="/carrito" activeClassName="active">Carrito</NavLink></li>
+                    <li><NavLink className='Header-a' to="/">Home</NavLink></li>
+                    <li><NavLink className='Header-a' to="/admin">Admin</NavLink></li>
+                    <li><NavLink className='Header-a' to="/carrito">Carrito</NavLink></li>
                     {
                         !user ? (  // If no user is logged in
                             <>
