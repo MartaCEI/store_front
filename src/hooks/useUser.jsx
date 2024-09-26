@@ -8,6 +8,8 @@ export function UserProvider({children}) {
     const [user, setUser] = useState(null);
 
     const {VITE_API_URL, VITE_STATIC_URL} = import.meta.env;
+    console.log(VITE_API_URL)
+    console.log(import.meta.env)
 
     // Ver si ya estoy logedin (localStorage cache)
     useEffect(() => {
@@ -20,7 +22,7 @@ export function UserProvider({children}) {
     // Función login
     const login = async (userData) => {
         // Fetch para mandar al backend
-        const response = await (`${VITE_API_URL}/login`, {
+        const response = await fetch(`${VITE_API_URL}/login`, {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
@@ -42,8 +44,26 @@ export function UserProvider({children}) {
     };
 
     // Función register
-    const register = (userData) => {
-        // Fetch para mandar al backend
+    const register = async (userData) => {
+
+        const response = await fetch(`${VITE_API_URL}/register`, {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(userData)
+        });
+        // El back en me devuelve mi usuario complete menos la clave.
+        const responseData = await response.json();
+
+        if(!response.ok) {
+            console.log("NO FURULA")
+        }
+
+        localStorage.setItem("user", JSON.stringify(responseData));
+
+        console.log(responseData);
+        // Un avez con los datos los guardo en setUser
         setUser(userData);
     };
 

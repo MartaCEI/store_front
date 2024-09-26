@@ -190,3 +190,4 @@ Mejorar el rendimiento, imágenes, SEO, entre otros.
 Tiempo estimado total: 40-50 horas
 Puedes ajustar estas tareas a tus necesidades y disponibilidad, pero con esto tendrás una guía clara para empezar.
 
+
