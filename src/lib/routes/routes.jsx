@@ -6,6 +6,7 @@ import Carrito from "../../pages/Carrito";
 import RegisterForm from "../../pages/RegisterForm";
 import Admin from "../../pages/Admin";
 import Login from "../../pages/Login";
+import Product from "../../pages/Product";
 import { PrivateRoute } from "../../components/PrivateRoute";
 
 
@@ -20,8 +21,8 @@ const router = createBrowserRouter(
                     element: <Home />,
                 },
                 {
-                    path: "/addProduct",
-                    element: <AddProduct />,
+                    path: "/product/:id",
+                    element: <Product />,
                 },
                 {
                     path: "/carrito",
@@ -34,6 +35,10 @@ const router = createBrowserRouter(
                 {
                     path: "/admin",
                     element: <PrivateRoute><Admin /></PrivateRoute>,
+                },
+                {
+                    path: "/addProduct",
+                    element: <PrivateRoute><AddProduct /></PrivateRoute>,
                 },
                 {
                     path: "/login",

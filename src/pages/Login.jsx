@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
     // Informaciçópn para probar la app
     const [formData, setFormData] = useState({
-        name:"Marta",
-        username:"marta@gmail.com",
-        password:"1234",
+        name:"",
+        username:"",
+        password:"",
         image: 'https://picsum.photos/200'
     });
     const navigate = useNavigate();

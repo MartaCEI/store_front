@@ -8,8 +8,6 @@ export function UserProvider({children}) {
     const [user, setUser] = useState(null);
 
     const {VITE_API_URL, VITE_STATIC_URL} = import.meta.env;
-    console.log(VITE_API_URL)
-    console.log(import.meta.env)
 
     // Ver si ya estoy logedin (localStorage cache)
     useEffect(() => {

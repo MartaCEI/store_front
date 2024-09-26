@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
+import '@/css/products.css';
 
 const Home = () => {
     const [productsList, setProductsList] = useState([]);
@@ -15,25 +16,25 @@ const Home = () => {
             const objeto = await respuesta.json();
             console.log(objeto);
 
-            if (objeto.status == "error") {
-                setUserError(`Tuvimos un error: ${objeto.msg}`)
-                return;
-            } 
             setProductsList(objeto);
 
         } catch (error) {
-            console.log("Error al hacer el fetch de los correos :", error);
+            console.log("Error al hacer el fetch de los productos:", error);
         }
     }
 
     return (
-        <section className="Product-section">
-            <h2>Esta es mi lista de productos</h2>
-            <div className="Products-list">
-                {productsList.map((product, index) => (
-                    <ProductCard key={index} {...product} />
-                ))}
-            </div>
+        <section className="Product-container">
+            <ul className="Product-ul">
+                {
+                productsList.map((product, index) => (
+                    <li className="Product-li" key={index}>
+                        <ProductCard {...product}/>
+                    </li>
+                    
+                ))
+                }
+            </ul>
         </section>
     );
 }

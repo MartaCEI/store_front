@@ -1,0 +1,90 @@
+.Product-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.Product-h1 {
+    font-size: 2.5rem;
+    color: #df1010;
+    text-align: center;
+    margin: 1rem 0 1rem 0;
+}
+
+.Product-p {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 1rem 0 1rem 0;
+}
+
+.Product-ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.Product-li {
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.Product-li:before {
+    content: "New";
+    background: #FF4E00;
+    padding: 10px;
+    width: 60px;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    transform: rotate(-90deg);
+    color: white;
+}
+
+.Product-innerContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.Product-img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.Product-title {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.Product-price {
+    color: #FF4E00;
+    font-weight: bold;
+}
+
+.Product-button {
+    background: #FF4E00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.Product-button:hover {
+    background: #333;
+    color: white;
+    transition: all 0.3s;
+}
+
+.Product-li:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
