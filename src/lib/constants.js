@@ -1,8 +1,8 @@
 export const MockUser = {
-    name:"Marta",
-    username:"marta@gmail.com",
-    password:"1234",
-    image: 'https://picsum.photos/200'
+    "name":"Marta",
+    "username":"marta@gmail.com",
+    "password":"1234",
+    "image": 'https://picsum.photos/200'
 }
 
 export const MockProduct = [
