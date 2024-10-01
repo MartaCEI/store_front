@@ -35,13 +35,13 @@ const Product = () => {
     
     return (
         <section className="Product-section">
-            {/* <h2>Detalles del producto</h2>
-            <h3>{title}</h3>
-            <img src={`${URL}/img/${images}`} alt={title} />
-            <p>{description}</p>
-            <p>Precio: {price}€</p>
-            <p>Categoria: {category}</p>
-            <p>Creado por: {name}</p>
+            <h2>Detalles del producto</h2>
+            <h3>{product.title}</h3>
+            <img src={`${URL}/img/${product.images}`} alt={product.title} />
+            <p>{product.description}</p>
+            <p>Precio: {product.price}€</p>
+            <p>Categoria: {product.category}</p>
+            {/* <p>Creado por: {name}</p>
             <p>Vendido por: {username}</p> */}
         </section>
     );

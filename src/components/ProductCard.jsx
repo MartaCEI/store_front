@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 const LOCAL_URL = import.meta.env.VITE_STATIC_URL;
 
 const ProcuctCard = ({_id, title, price, description, images, category, userId}) => {
-    // const { name, username} = userId;
+    const { name, username} = userId;
 
     return (
         <div className="Product-innerContainer">
@@ -14,7 +14,7 @@ const ProcuctCard = ({_id, title, price, description, images, category, userId})
             <p className="Product-price">Precio: {price}€</p>
             <p className="Product-category"><b>Categoria: </b>{category}</p>
             <p className="Product-username"><b>Creado por: </b>{name}</p>
-            <Link to={`/product/${_id}`} className="Product-button"><button className="Product-username">Ver más</button></Link>
+            <Link to={`/products/${_id}`} className="Product-button"><button className="Product-username">Ver más</button></Link>
         </div>
     );
 }
